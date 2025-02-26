@@ -1,51 +1,31 @@
-<script setup lang="ts">
-import { NCard, NSpace, NIcon, NLi } from "naive-ui";
-import {
-  MailOutlined,
-  GithubOutlined,
-  InstagramOutlined,
-  FacebookOutlined,
-} from "@vicons/antd";
-
-const email = "your.email@example.com";
-const github = "https://github.com/your-username";
-const instagram = "https://instagram.com/your-username";
-const facebook = "https://facebook.com/your-username";
-</script>
-
 <template>
-  <n-card
-    title="About Us"
-    class="w-screen h-screen flex justify-center items-center"
-  >
-    <n-space vertical>
-      <n-space>
-        <n-icon :size="24">
-          <MailOutlined />
-        </n-icon>
-        <n-li :href="`mailto:${email}`" :underline="false">{{ email }}</n-li>
-      </n-space>
-
-      <n-space>
-        <n-icon :size="24">
-          <GithubOutlined />
-        </n-icon>
-        <n-li :href="github" :underline="false">GitHub</n-li>
-      </n-space>
-
-      <n-space>
-        <n-icon :size="24">
-          <InstagramOutlined />
-        </n-icon>
-        <n-li :href="instagram" :underline="false">Instagram</n-li>
-      </n-space>
-
-      <n-space>
-        <n-icon :size="24">
-          <FacebookOutlined />
-        </n-icon>
-        <n-li :href="facebook" :underline="false">Facebook</n-li>
-      </n-space>
-    </n-space>
-  </n-card>
+  <v-card>
+    <v-card-title>ให้คะแนนรีวิว</v-card-title>
+    <v-card-text>
+      <v-textarea v-model="reviewText" label="เขียนรีวิวของคุณ"></v-textarea>
+      <v-rating v-model="rating" label="คะแนน" hover></v-rating>
+    </v-card-text>
+    <v-card-actions>
+      <v-btn color="primary" @click="submitReview">ส่งรีวิว</v-btn>
+    </v-card-actions>
+  </v-card>
 </template>
+
+<script>
+export default {
+  data() {
+    return {
+      reviewText: "",
+      rating: 0,
+    };
+  },
+  methods: {
+    submitReview() {
+      // i can push a data to server here
+      console.log("รีวิว:", this.reviewText);
+      console.log("คะแนน:", this.rating);
+      alert("ส่งรีวิวสำเร็จ!");
+    },
+  },
+};
+</script>
