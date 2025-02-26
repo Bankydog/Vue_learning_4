@@ -1,6 +1,6 @@
 # learning
 
-Router, VeeValodate,
+Router, VeeValodate, Toast,SweetAlert2
 
 ## Recommended IDE Setup
 
