@@ -1,6 +1,6 @@
 # learning
 
-Router, VeeValodate, Toast,SweetAlert2
+Router, VeeValodate, Toast, SweetAlert2, Naive UI, Vuetify
 
 ## Recommended IDE Setup
 
