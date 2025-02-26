@@ -1,7 +1,9 @@
 <script setup lang="ts">
 import { useForm, useField } from "vee-validate";
 import * as yup from "yup";
+import { useToast } from "vue-toastification"; // Import the toast hook
 
+// ##### Use Veevalidate to validate form fields #####
 const { handleSubmit, errors } = useForm({
   validationSchema: yup.object({
     email: yup.string().email().required("Email is required"),
@@ -15,8 +17,14 @@ const { handleSubmit, errors } = useForm({
 const { value: email, errorMessage: emailError } = useField("email");
 const { value: password, errorMessage: passwordError } = useField("password");
 
+// Create a toast instance
+const toast = useToast();
+
 const onSubmit = handleSubmit((values) => {
   console.log(values);
+
+  // Show success toast after successful form submission
+  toast.success("Login Successful!");
 });
 </script>
 
@@ -67,3 +75,4 @@ const onSubmit = handleSubmit((values) => {
     </form>
   </div>
 </template>
+
